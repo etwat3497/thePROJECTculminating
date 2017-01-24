@@ -14,11 +14,12 @@ import java.util.Scanner;
  */
 public class decisionMaker extends MathMethods{ 
 
-    public double v1, v1x, v1y, v2, v2y, dx,
+    //Declare private variables
+    private double v1, v1x, v1y, v2, v2y, dx,
      dy, t, a, theta1, theta2;
-    public double awnser;
-    public int num;
-    public String unknown, megaString;
+    private double awnser;
+    private int num;
+    private String unknown, megaString;
     String[] varNameArray = {"v1","v1x","v1y","v2","v2y","dx","dy","t","a","theta1","theta2"};
     
     
@@ -45,34 +46,27 @@ public class decisionMaker extends MathMethods{
     } 
     
     public double decisionStatements() {
-
-        //System.out.println("Welcome to the Cannon of Physics! Here you can easily solve projectile motion problems!");
-        //System.out.println("These are a list of variables you can input (Input short form):\nv1 - Initial Velocity\nv1x - Initial x Velocity\nv1y - Initial y Velocity\n"
-        //+ "v2 - Final Velocity\ndx - Horizontal Displacement\ndy - Vertical Displacement\n"
-        //+ "t - Time\na - Acceleration\ntheta1 - The initial angle of launch\ntheta2 - The final angle at impact");
-        //System.out.println("Please input your givens one at a time and type 'done' when finished.");
+        //Method to check the users unknown variable and to decide which case to run
+        //Megastring name contains all the known variables the user has in alphabetical order
+        //Switch statements in each unknown go through every possibility as given in superclass
         
-                
-        //For user input: Ask what they are trying to solve for (unkown)
-        //How many pieces of information do you have (int)
-        //Ask for the symbol for each variable they have (string)
-        //Get the value for each variable (double)
-        //Go through steps to determine which equation to use
-
-        //IF THE USER INPUTS MORE INFO THEN NEEDED WE COULD DO .CONTAINS TO CHECK IF THE MEGASTRING CONTAINS THE VARIABLES NEEDED EVEN IF IT HAS EXTRA
+        //Check if the unknown variable is the initial velocity
         if(unknown == "v1"){
+            //Using switch statement, determine which case is to be run to solve for unknown
             switch(megaString){
-                //For the case of any equation, run corresponding method
+                //For the case of any equation, run corresponding method in superclass
                 case "theta1v1y": awnser = oppThetaOFhyp(v1y,theta1);
                 break;
                 case "theta1v1x": awnser = adjThetaOFhyp(v1x,theta1);
                 break;
                 case "v1xv1y": awnser = pythagFORHypotenuse(v1x,v1y);
                 break;
-                //Cant you find the initial velocity knowing v1x and v1y and theta
             }
         }
+        
+        //Check if the unknown variable is the initial x velocity
         else if(unknown == "v1x"){
+            //Using switch statement, determine which case is to be run to solve for unknown
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "dxt": awnser = dxtOFv1x(dx,t) ;
@@ -85,7 +79,10 @@ public class decisionMaker extends MathMethods{
                 break;
             }
         }
+        
+        //Check if the unknown variable is the initial y velocity
         else if(unknown == "v1y"){
+            //Using switch statement, determine which case is to be run to solve for unknown
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "adyt": awnser = dytaOFv1y(dy,t,a);
@@ -102,7 +99,10 @@ public class decisionMaker extends MathMethods{
                 break;
             }
         }
+        
+        //Check if the unknown variable is the final velocity
         else if(unknown == "v2"){
+            //Using switch statement, determine which case is to be run to solve for unknown
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "theta2v2y": awnser = oppThetaOFhyp(v2y,theta2);
@@ -113,7 +113,10 @@ public class decisionMaker extends MathMethods{
                 break;
             }
         }
+        
+        //Check if the unknown variable is the final y velocity
         else if(unknown == "v2y"){
+            //Using switch statement, determine which case is to be run to solve for unknown
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "adyt": awnser =dytaOFv2y(dy,t,a);
@@ -130,14 +133,20 @@ public class decisionMaker extends MathMethods{
                 break;
             }
         }
+        
+        //Check if the unknown variable is the x displacement
         else if(unknown == "dx"){
+            //Using switch statement, determine which case is to be run to solve for unknown
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "tv1x": awnser = tv1xOFdx(t,v1x);
                 break;
             }
         }
+        
+        //Check if the unknown variable is the y displacement
         else if(unknown == "dy"){
+            //Using switch statement, determine which case is to be run to solve for unknown
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "atv1y": awnser=v1ytaOFdy(v1y,t,a);
@@ -150,7 +159,10 @@ public class decisionMaker extends MathMethods{
                 break;
             }
         }
+        
+        //Check if the unknown variable is the time
         else if(unknown == "t"){
+            //Using switch statement, determine which case is to be run to solve for unknown
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "dxv1x": awnser=dxv1xOFt(dx,v1x);
@@ -165,7 +177,10 @@ public class decisionMaker extends MathMethods{
                 break;
             }
         }
+        
+        //Check if the unknown variable is the acceleration
         else if(unknown == "a"){
+            //Using switch statement, determine which case is to be run to solve for unknown
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "dytv1y": awnser=dyv1ytOFa(dy,t,v1y);
@@ -178,7 +193,10 @@ public class decisionMaker extends MathMethods{
                 break;
             }
         }
+        
+        //Check if the unknown variable is the initial angle
         else if(unknown == "theta1"){
+            //Using switch statement, determine which case is to be run to solve for unknown
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "v1xv1y": awnser=oppAdjOFtheta(v1x,v1y);
@@ -189,7 +207,10 @@ public class decisionMaker extends MathMethods{
                 break;
             }
         }
+        
+        //Check if the unknown variable is the final angle
         else if(unknown == "theta2"){
+            //Using switch statement, determine which case is to be run to solve for unknown
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "v1xv2y": awnser=oppAdjOFtheta(v1x,v2y);
