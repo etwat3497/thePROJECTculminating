@@ -18,15 +18,13 @@ public class decisionMaker extends MathMethods{
     private double v1, v1x, v1y, v2, v2y, dx,
      dy, t, a, theta1, theta2;
     private double awnser;
-    private int num;
     private String unknown, megaString;
     String[] varNameArray = {"v1","v1x","v1y","v2","v2y","dx","dy","t","a","theta1","theta2"};
     
     
-    public decisionMaker(String unknownVar, int numVar, String varName, double[] varValue){
+    public decisionMaker(String unknownVar, String varName, double[] varValue){
         
         //Set values for variables
-        num = numVar;
         unknown = unknownVar;
         megaString = varName;
         
